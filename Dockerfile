@@ -19,9 +19,10 @@ RUN curl -fsSLO --compressed "http://dl-cdn.alpinelinux.org/alpine/v3.15/communi
 
 # install sbt
 RUN mkdir -vp "${SBT_HOME}" \
-    && wget --inet4-only "https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.tgz" | tar -zxvf -C "${SBT_HOME}" --strip-components=1 \
-    && ln -sf "${SBT_HOME}/bin/sbt" "/usr/bin/sbt" \
+    && wget --inet4-only "https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.tgz" \
+    && tar -zxvf "sbt-${SBT_VERSION}.tgz" -C "${SBT_HOME}" --strip-components=1 \
     && rm -rf "sbt-${SBT_VERSION}.tgz" \
+    && ln -sf "${SBT_HOME}/bin/sbt" "/usr/bin/sbt" \
     && sbt sbtVersion
 
 RUN apk del .buidl-deps \
