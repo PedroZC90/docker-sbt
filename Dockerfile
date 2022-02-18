@@ -19,7 +19,7 @@ RUN curl -fsSLO --compressed "http://dl-cdn.alpinelinux.org/alpine/v3.15/communi
 
 # install sbt
 RUN mkdir -vp "${SBT_HOME}" \
-    && wget "https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.tgz" | tar -zxvf -C "${SBT_HOME}" --strin-components=1 \
+    && wget --inet4-only "https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.tgz" | tar -zxvf -C "${SBT_HOME}" --strip-components=1 \
     && ln -sf "${SBT_HOME}/bin/sbt" "/usr/bin/sbt" \
     && rm -rf "sbt-${SBT_VERSION}.tgz" \
     && sbt sbtVersion
