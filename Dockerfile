@@ -25,5 +25,5 @@ RUN mkdir -vp "${SBT_HOME}" \
     && ln -sf "${SBT_HOME}/bin/sbt" "/usr/bin/sbt" \
     && sbt sbtVersion
 
-RUN apk del .buidl-deps \
-    && rm -rfv "/tmp/"*
+RUN apk del .build-deps \
+    && rm -rfv /tmp/*
