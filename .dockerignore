@@ -1,0 +1,13 @@
+# git files
+.git
+.gitignore
+.gitattributes
+README.md
+LICENSE
+
+# dockerfiles
+Dockerfile
+.dockerignore
+
+# scripts
+build.sh
